@@ -1,0 +1,48 @@
+---
+layout: post
+title:  "Finally..."
+date:   2014-08-17 01:37:05
+categories: jekyll update
+---
+
+Quick disclaimer- this first post will have pop-culture references from all over the place. I didn't come up with the notion that GIFs and memes perfectly capture certain sentiment, but it's definitely going to be embraced on this blog, so... its got that going for it.
+
+![finallyrock]
+
+"Finally... The Rock... has come BACK... to *(town near you)*!"
+
+\*chills\*  
+
+While I'm sure no one has been *waiting* for my grand return to blogging, it's something that I've been meaning to get back into for way too long. My first attempt at blogging, [Hyperbolic Time Chamber][hbtc], can still be found on tumblr. It was created specifically to document my experience and learning as a student at [Dev Bootcamp][dbc]. While I'm very proud of that blog and incredibly fond of the memories I've created during that time, I wanted to use this as an opportunity to start anew. Similar to before, this blog is primarily dedicated to my progress as an aspiring developer, but I feel that it's equally important to share other things that I'm also passionate about. Coincidentally, most of these things find a way back to code anyhow, so it ends up working out!
+
+![carell]
+
+Yes, Steve, it is true. Well, at least in the context of this reflection. I think it's obvious that without the discipline to put ourselves through the necessary practice and repetition, we'll never acquire any worthwhile skills. At Dev Bootcamp (DBC), I learned more about web-development than I ever would have been able to teach myself within 9 weeks. This was largely made possible through daily immersion (I'm talking ~12-14 hours/day), and though it was exhausting, I absolutely loved what I was capable of at the end of each day, and a lot of the fundamentals became second nature.
+
+DBC put me at the top of my game, and once I graduated, I had so many plans to continue my learning. Through great fortune, I was able to apply for a position as a Coach for DBC (similar to a part-time teaching assistant), which eventually grew into a full-time staff member position. I'm still to this day so grateful and flattered that the team that I looked up to with such admiration and respect as a student believed that I had something to contribute to what I view as a truly special and life-changing organization. It's been an amazing journey as a part of this family, and I look forward to whatever the future holds.
+
+With that, my current role at DBC requires very little coding skills. By falling into a schedule that does not involve any regular coding sessions, much of my chops have atrophied like an unused muscle. When I first started noticing this, I tried preventing any further loss by going into old projects, or others' code on github. It was honestly heartbreaking to feel like a stranger in some of my old repos, needing to really think about how something works that would have taken me minutes (or less) before. As time went on, I think it was the fear of experiencing this feeling again that kept me from diving back in, which needless to say was not the correct way to handle the situation.
+
+And that's where this blog comes in! I'm done with allowing the shame of temporarily forgetting how to do a few things hinder my growth in something that I really care about. Though I've been maintaining a small exposure to code here and there over the months, it's not enough to get me where I need to be. I want to be a developer, and dammit, I **will** be a professional developer someday! It starts (again) right here, right now. Having this blog will, in my mind, keep me accountable for my progress. Granted, only few will be aware of this blog's existence, it represents my commitment to this craft so you can be damn sure that I'll be putting my heart into it.
+
+![greatness]
+
+Which brings me to another image of the People's Champion. Dwayne Johnson has been one of my heroes since I was 13 years old, and he often shares some inspiring posts via social media. Anyone that knows anything about him can't deny his work ethic, and here the theme of *consistency* arises again. My coding skills might not be at the level they once were, but I know that with small steps in the right direction every single day, I'll eventually get so far beyond where I was before.
+
+![elrics]
+
+Finally, what's the deal with this blog's name? Equivalent Exchange?? Whaa?!
+
+For any anime fan, you'll notice a theme here. My [last blog][hbtc] was named after an anime reference, and aside from paying homage to one of my other lifelong passions, both blogs have special meaning behind the name. Here, the idea of Equivalent Exchange is taken from the series [Full Metal Alchemist][fma_wiki]. In a world of alchemy- the "science of understanding the structure of matter, breaking it down, then reconstructing it as something else", the principle of equivalent exchange must be followed. This simply states that in order to create, *something of equal value must be lost.*
+
+Without getting into the rabbit-hole of what this really means, it's relavent to what I'm doing with this blog because in the next few years, there are many, many things that I plan to accomplish. Some for professional development, and others for personal growth. For both, in order to achieve my goals, I must be ready to *sacrifice* the necessary time and effort in return for the gain. **There is no cheating this**. I know what I want, and now is the time to put in the work.
+
+I couldn't be more excited! :D
+
+[finallyrock]: 	http://stream1.gifsoup.com/webroot/animatedgifs7/2878767_o.gif
+[carell]:				http://i1253.photobucket.com/albums/hh586/TheDailyLike/40yearoldvirgin-useit.gif
+[greatness]: 		http://vegetarianbaker.com/wp-content/uploads/2014/04/d8c723c86599c53d4c3e9b82cc7f424d.jpg
+[hbtc]:					https://www.tumblr.com/blog/gregrv
+[dbc]:					http://www.devbootcamp.com
+[elrics]:				http://25.media.tumblr.com/tumblr_m8f7p8tX5G1rzd2xgo1_500.gif
+[fma_wiki]:			http://en.wikipedia.org/wiki/Fullmetal_Alchemist
