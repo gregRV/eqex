@@ -4,8 +4,9 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Just a guy who's excited to dive deeper into the world of web-development and software engineering! On this blog, I'll be sharing my progress via updates on personal projects, tutorials, various reading, and other fun life experiences.
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+My old blog, [Hyperbolic Time Chamber][hbtc], has lots of great bits to check out from my time as a student at [Dev Bootcamp][dbc], San Francisco.
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+[hbtc]:		http://gregrv.tumblr.com/
+[dbc]:		http://devbootcamp.com/
