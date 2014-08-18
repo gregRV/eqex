@@ -4,8 +4,8 @@ email: gregvarias@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   On a journey to gain the skills to build beautiful and awesome things with code.
   Plenty of learning and adventure on the horizon!
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+baseurl: "/eqex" # the subpath of your site, e.g. /blog/
+url: "http://gregrv.github.io" # the base hostname & protocol for your site
 twitter_username: 180ad
 github_username:  gregRV
 timezone: America/California
