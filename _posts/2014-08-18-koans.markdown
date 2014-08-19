@@ -1,0 +1,178 @@
+---
+layout: post
+title:  They were Koans!
+date:   2014-08-18
+categories: jekyll update
+tags: koans
+---
+
+Any practice is good practice, and the key is to be deliberate with your time. Even though it sometimes feels like I've been using Ruby long enough to not need to practice using it outside of an actual project, I quickly check myself and remember that even with all that I've learned over the past year and a half, I've probably tapped 5-8% of all the awesomeness this language has to offer. That's why I've decided to tackle the famous [Ruby Koans][koans]!
+
+![koansimg]
+
+Now, I would assume that this resource, though fantastic, can only get someone so far in their Ruby training. But, like I said, any practice is good practice, and I'm sure there's plenty to learn here. The idea of being *deliberate* with my time is that I have to be mindful about not speeding through things that I'm already familar with. Currently, I'm only 15% through the exercises (43/282), and even though it's still shallow waters, I'm definitely learning new things here and there!
+
+Today's exercises were about Hashes, and I've included some snippets along with the notes that I left in the file as I worked through it.
+
+{% highlight ruby %}
+# Hash#fetch
+# Returns a value from the hash for the given key. If the key can’t be found, 
+# there are several options: With no other arguments, it will raise 
+# a KeyError exception; if default is given, then that will be returned; 
+# if the optional code block is specified, then that will 
+# be run and its result returned.
+
+def test_accessing_hashes_with_fetch
+  hash = { :one => "uno" }
+  assert_equal "uno", hash.fetch(:one)
+  assert_raise(KeyError) do
+    hash.fetch(:doesnt_exist)
+  end
+
+  # THINK ABOUT IT:
+  #
+  # Why might you want to use #fetch instead of #[] when accessing hash keys?
+  # Using fetch can raise an Error (like KeyError here), but using #[] will
+  # simply return nil if key is not found! Ahhhh
+end
+{% endhighlight %}
+
+I love how the authors have included extra questions within the files to make you pause and consider if you truly understand what's happening, or simply entered something to make the test pass. These have definitely been worth slowing down for, because if I can't explain it in my own words, well, then I don't know it! Being able to articulate code and exactly what it's doing is very important to me, so I look forward to more of these questions in future koans.
+
+Speaking of tests, I really appreciate how the koans are built around the practice of Test-Driven Development (TDD). On the home page, it gives a brief description of Red, Green, Refactor:
+
+> With the koans, you will need to run the tests and see it fail (red), make the test pass (green), then take a moment and reflect upon the test to see what it is teaching you and improve the code to better communicate its intent (refactor).
+
+This instills the habit of reading the terminal for error messages and understanding the significance of tests. Let the tests guide you!
+
+Here's more hash goodness, specifically about why assert_equal doesn't like a hash literal as an argument...
+
+{% highlight ruby %}
+def test_changing_hashes
+  hash = { :one => "uno", :two => "dos" }
+  hash[:one] = "eins"
+
+  expected = { :one => "eins", :two => "dos" }
+  assert_equal expected, hash
+
+  # Bonus Question: Why was "expected" broken out into a variable
+  # rather than used as a literal?
+  # You can't use a hash literal because the assert_equal will think
+  # it's being passed a block and will throw an error, including
+  # the ASCII art below! As verified on StackOverflow, you could actually
+  # use the following if you like:
+  # assert_equal({ :one => "eins", :two => "dos" }, hash)
+end
+#                                   ,,   ,  ,,
+#                                 :      ::::,    :::,
+#                    ,        ,,: :::::::::::::,,  ::::   :  ,
+#                  ,       ,,,   ,:::::::::::::::::::,  ,:  ,: ,,
+#             :,        ::,  , , :, ,::::::::::::::::::, :::  ,::::
+#            :   :    ::,                          ,:::::::: ::, ,::::
+#           ,     ,:::::                                  :,:::::::,::::,
+#       ,:     , ,:,,:                                       :::::::::::::
+#      ::,:   ,,:::,                                           ,::::::::::::,
+#     ,:::, :,,:::                                               ::::::::::::,
+#    ,::: :::::::,       Mountains are again merely mountains     ,::::::::::::
+#    :::,,,::::::                                                   ::::::::::::
+#  ,:::::::::::,                                                    ::::::::::::,
+#  :::::::::::,                                                     ,::::::::::::
+# :::::::::::::                                                     ,::::::::::::
+# ::::::::::::                      Ruby Koans                       ::::::::::::
+# ::::::::::::                   (in Ruby 2.1.2)                    ,::::::::::::
+# :::::::::::,                                                      , :::::::::::
+# ,:::::::::::::,                brought to you by                 ,,::::::::::::
+# ::::::::::::::                                                    ,::::::::::::
+#  ::::::::::::::,                                                 ,:::::::::::::
+#  ::::::::::::,               Neo Software Artisans              , ::::::::::::
+#   :,::::::::: ::::                                               :::::::::::::
+#    ,:::::::::::  ,:                                          ,,:::::::::::::,
+#      ::::::::::::                                           ,::::::::::::::,
+#       :::::::::::::::::,                                  ::::::::::::::::
+#        :::::::::::::::::::,                             ::::::::::::::::
+#         ::::::::::::::::::::::,                     ,::::,:, , ::::,:::
+#           :::::::::::::::::::::::,               ::,: ::,::, ,,: ::::
+#               ,::::::::::::::::::::              ::,,  , ,,  ,::::
+#                  ,::::::::::::::::              ::,, ,   ,:::,
+#                       ,::::                         , ,,
+#                                                   ,,,
+
+{% endhighlight %}
+
+I learned about Hash#merge, and how if there is a duplicate key in the two hashes that you're merging, it will assign the value of the latter hash to that respective key.
+
+{% highlight ruby %}
+# Hash#merge
+# Returns a new hash containing the contents of other_hash and the 
+# contents of hsh. If no block is specified, the value for entries 
+# with duplicate keys will be that of other_hash. Otherwise the value
+# for each duplicate key is determined by calling the block with the key, 
+# its value in hsh and its value in other_hash.
+
+def test_combining_hashes
+  hash = { "jim" => 53, "amy" => 20, "dan" => 23 }
+  new_hash = hash.merge({ "jim" => 54, "jenny" => 26 })
+
+  assert_equal true, hash != new_hash
+
+  expected = { "jim" => 54, "amy" => 20, "dan" => 23, "jenny" => 26 }
+  assert_equal true, expected == new_hash
+end
+{% endhighlight %}
+
+These last two examples were great for learning more about default values in hashes:
+
+{% highlight ruby %}
+# I should've guessed by the name of the method, but apparently the default value
+# in a hash is the same object. I suppose this makes sense because all new keys
+# can simply make a reference to the same object, rather than making copies of the
+# object for each key. (See below for excerpt from official docs)
+
+def test_default_value_is_the_same_object
+  hash = Hash.new([])
+
+  #hash[:one] => []
+  hash[:one] << "uno"
+  hash[:two] << "dos"
+
+  assert_equal ["uno", "dos"], hash[:one]
+  assert_equal ["uno", "dos"], hash[:two]
+  assert_equal ["uno", "dos"], hash[:three]
+
+  assert_equal true, hash[:one].object_id == hash[:two].object_id
+end
+
+# Various ways to create hashes in Ruby
+# new → new_hash
+# new(obj) → new_hash
+# new {|hash, key| block } → new_hash
+# Returns a new, empty hash. If this hash is subsequently accessed by a key that 
+# doesn’t correspond to a hash entry, the VALUE RETURNED DEPENDS on the style
+# of new used to create the hash. In the first form, the access returns nil.
+# If obj is specified, this single object will be used for all default values.
+# If a block is specified, it will be called with the hash object and the key,
+# and should return the default value. It is the block’s responsibility to store 
+# the value in the hash if required.
+
+# In this last example, each key is being assigned the default value, which is
+# its OWN array. They are no longer referencing to the same object/array, which
+# is why the array doesn't appear to 'grow' like in the previous example.
+
+def test_default_value_with_block
+  hash = Hash.new {|hash, key| hash[key] = [] }
+
+  hash[:one] << "uno"
+  hash[:two] << "dos"
+
+  assert_equal ["uno"], hash[:one]
+  assert_equal ["dos"], hash[:two]
+  assert_equal [], hash[:three]
+end
+{% endhighlight %}
+
+
+Welp, that'll do for tonight (12:56am). More koans fun tomorrow, as well as jumping into an old project!
+
+
+[koans]:			http://rubykoans.com/
+[koansimg]:		https://i.imgflip.com/bagt2.jpg
