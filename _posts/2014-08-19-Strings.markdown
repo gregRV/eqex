@@ -1,0 +1,114 @@
+---
+layout: post
+title:  Strings & Things
+date:   2014-08-19
+categories: jekyll update
+tags: koans workflow
+---
+
+Today's update isn't too exciting, but hey, progress is progress! I finished wasn't able to get around to my coding session until late tonight, so all I've had time for thus far has been the Ruby Koans about Strings. This very, very familiar territory, but I'm trying to "reach enlightenment", and basic string-work is part of the package! But, like last time, there were a few hidden gems in the file. Here are some notes:
+
+{% highlight ruby %}
+# Flexible quoting makes it easier to write strings by taking care of quotation marks for us.
+# And with 3 different ways to implement, it's fairly flexible! /joke
+
+def test_use_flexible_quoting_to_handle_really_hard_cases
+  a = %(flexible quotes can handle both ' and " characters)
+  b = %!flexible quotes can handle both ' and " characters!
+  c = %{flexible quotes can handle both ' and " characters}
+  assert_equal true, a == b
+  assert_equal true, a == c
+end
+
+# String#length counts how many characters are in a String, including spaces.
+# String#lines returns an Enumerable, and count returns the amount in that collection.
+
+def test_flexible_quotes_can_handle_multiple_lines
+  long_string = %{
+It was the best of times,
+It was the worst of times.
+}
+  assert_equal 54, long_string.length
+  assert_equal 3, long_string.lines.count
+  assert_equal "\n", long_string[0,1]
+end
+
+def test_the_shovel_operator_modifies_the_original_string
+  original_string = "Hello, "
+  hi = original_string
+  there = "World"
+  hi << there
+  assert_equal "Hello, World", original_string
+
+  # THINK ABOUT IT:
+  #
+  # Ruby programmers tend to favor the shovel operator (<<) over the
+  # plus equals operator (+=) when building up strings.  Why?
+  # Shovel operator will allow you to continually build up the string,
+  # whereas += will leave the original string unmodified.
+end
+
+# How single characters are represented in older/newer Ruby versions.
+
+in_ruby_version("1.8") do
+  def test_in_older_ruby_single_characters_are_represented_by_integers
+    assert_equal "a", ?a
+    assert_equal true, ?a == 97
+
+    assert_equal true, ?b == (?a + 1)
+  end
+end
+
+in_ruby_version("1.9", "2") do
+  def test_in_modern_ruby_single_characters_are_represented_by_strings
+    assert_equal "a", ?a
+    assert_equal false, ?a == 97
+  end
+end
+{% endhighlight %}
+
+Nothing mind-blowing, but I'll take it. Currently I'm at 70/282 koans complete, so I'm looking forward to getting to the heavier stuff soon.
+
+I think the more interesting stuff that occurred today was learning small tricks to speed up my workflow. For example, it's a drag to use the mouse (for anything, really...) to add new posts files in jekyll's _post folder, so I found this nifty plugin called **Sublime-AdvancedNewFile**, and here's a [tuts+][tuts] post explaining the install/use. With this plugin, I can simply hit alt+cmd+n and it will open up a field to not only create a new file, but also specify the directory or create it if it doesn't already exist. This isn't built natively into Sublime, and I anticipate using it all the time. Niceee.
+
+Next, I learned a command that basically acts the same as **watch** in the terminal. Granted, there's a brew for this, but I've noticed that it doesn't keep the color scheme when I run the koans tests, which really hurts the readability of the output. Here's the command:
+
+{% highlight bash %}
+$ while :; do clear; your_command; sleep 2; done
+
+in my case, i used...
+
+$ while :; do clear; ruby path_to_enlightenment.rb; sleep 5; done
+{% endhighlight %}
+
+Admittedly, this is a temporary solution, and the author of this code also mentioned the following:
+
+>That will loop forever, clear the screen, run your command, and wait two seconds - the basic watch your_command implementation.
+You can take this a step further and create a watch.sh script that can accept your_command and sleep_duration as parameters:
+
+{% highlight bash %}
+#!/bin/bash
+# usage: watch.sh <your_command> <sleep_duration>
+
+while :; 
+  do 
+  clear; 
+  echo "$(date)"
+  $1; 
+  sleep $2; 
+done
+{% endhighlight %}
+
+In the future, I'll be utilizing gems like [Guard][guard], but it's nice to learn these simple commands that get exactly what I need done without introducing dependencies.
+
+![home-setup][home]
+
+I was really excited to share the above image of my new home setup, but jekyll decided to give me all kindsa trouble with linking a local image so now I just want to finish this post and sleep haha. But first, a bit about the setup. As you can see, there is some DIY-goodness, specifically my WiiU controller pen box and cardboard laptop stand, aside a BenQ RL2455 Gaming Monitor (also hooked up to my WiiU for Mario Kart 8 awesomeness yeee), Logitech K750 Wireless Solar Mac Keyboard, Logitech wireless rechargable trackpad, and finally the Harmon Kardon Soundsticks III for that BOOM. I really wanted to make this a standing desk, but maybe a bit later. In any case, glad all my parts are finally here so I can put this station to work!
+
+Finally, I mentioned in the previous post that I was going to dive back into an old project today, but sadly ran out of time. I've been staying up late studying/blogging/coding for the past two days and overslept, barely making my morning meetings! Can't do that anymore, and as much as I love working through the night, I just may have to become the dreaded *morning person*. Yay.
+
+Til tmrw!
+
+[tuts]:		http://code.tutsplus.com/tutorials/lightning-fast-folder-and-file-creation-in-sublime-text-2--net-24774
+[guard]:	https://github.com/guard/guard
+[home]:		http://i.imgur.com/iqfV6uh.jpg
