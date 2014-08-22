@@ -1,0 +1,110 @@
+---
+layout: post
+title:  Rust
+date:   2014-08-22
+categories: jekyll update
+tags: sinatra testing koans
+---
+
+Disclaimer- this post may not make any sense. It's 2:22am on 8/22. I did not plan that. I am tired.
+
+I'll try to sum up any progress made in the last 48 hours. I wanted to blog yesterday because I already feel the weight of only two stockpiled posts making my brain cry, but hopefully we can flip the narrative and make them tears of joy. 
+
+*results may vary*
+
+I have a bajillion tabs open, grouped in several browser windows, further grouped by topic, and then finally grouped by day. Let me find the cluster to start with...
+
+KOANS!
+
+Yesterday was a rather quick section focused on Symbols, and here's a few quick notes:
+
+{% highlight ruby %}
+def test_method_names_become_symbols
+  symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
+  assert_equal true, symbols_as_strings.include?("test_method_names_become_symbols")
+end
+
+# THINK ABOUT IT:
+#
+# Why do we convert the list of symbols to strings and then compare
+# against the string value rather than against symbols?
+
+# GOOD ANSWER ON STACKOVERFLOW! props to @AboutRuby
+# This has to do with how symbols work. For each symbol, only one of it 
+# actually exists. Behind the scenes, a symbol is just a number referred 
+# to by a name (starting with a colon). Thus, when comparing the equality 
+# of two symbols, you're comparing object identity and not the content of
+# the identifier that refers to this symbol.
+
+# If you were to do the simple test :test == "test", it will be false. 
+# So, if you were to gather all of the symbols defined thus far into 
+# an array, you would need to convert them to strings first before comparing them.
+# You can't do this the opposite way (convert the string you want to compare into
+# a symbol first) because doing that would create the single instance of that
+# symbol and "pollute" your list with the symbol you're testing for existence.
+
+# Hope that helps. This is a bit of an odd one, because you have to test for the 
+# presence of a symbol without accidentally creating that symbol during the test. 
+# You usually don't see code like that.
+
+
+def test_symbols_can_be_dynamically_created
+  assert_equal :catsdogs, ("cats" + "dogs").to_sym
+end
+
+# THINK ABOUT IT:
+#
+# Why is it not a good idea to dynamically create a lot of symbols?
+# I knew this probably had to do with symbols being immutable and taking up space
+# in memory, and when I verified this on S.O., I came across @david4dev's
+# well-worded explanation:
+
+# Symbols are like strings but they are immutable - they can't be modified.
+# They are only put into memory once, making them very efficient to use for
+# things like keys in hashes but they stay in memory until the program exits.
+# This makes them a memory hog if you misuse them.
+
+# If you dynamically create lots of symbols, you are allocating a lot of memory
+# that can't be freed until your program ends. You should only dynamically 
+# create symbols (using string.to_sym) if you know you will:
+	# need to repeatedly access the symbol
+	# not need to modify them
+# As I said earlier, they are useful for things like hashes - where you care
+# more about the identity of the variable than its value. Symbols, when 
+# correctly used, are a readable and efficient way to pass around identity.
+{% endhighlight %}
+
+
+A big source of frustration yesterday was dealing with **incredibly unnecessary** PostgreSQL woes. I first encountered this when I tried running an old project, and would see the following error:
+
+![error][err]
+
+I've never seen this before, and what was particularly frustrating was that I've had a lot of problems installing Postgres the first time around (like many students at the time), so finally getting it to work on the first try via homebrew was an accomplishment for me. After a ton of google queries, Stack Overflow posts, (un/re)installs (*quick note! when installing postgres via homebrew, don't forget to initdb and follow the provided commands!*), I was ready to go IT Crowd + Office Space on my new home setup, when I finally encountered what I needed:
+
+![savior][savior]
+
+Praise be to @ChrisSlade! It turns out that my server log was FULL of the exact error that Chris mentioned on step 2, and following these few steps had everything up and running again! I was so excited/thankful/relieved I signed up for StackOverflow just to give him thanks, but apparently you need a certain amount of S.O.Swag known as *karma* to even thank someone! Ah well, it's the thought that counts.
+
+![craigslist jr][cljr]
+
+Now with my db ready to go, I can fire up my old crusty app that I was practicing some new and reviewing some old stuff on. The project is a very early assignment in DBC known as Craigslist Jr., and as the name implies, it's meant to be a very basic clone of Craigslist. The idea is to familiarize yourself with the Sinatra framework, testing with Rspec, deploying to Heroku, and MVC structure. This is all old stuff, and the new that I wanted to practice is incorporating some pre-processors like haml and sass into the project, as well as making it mobile first. These will come in iterations since I only have a bit of haml practice (thought it's fairly straightforward), but I figured these simple projects would be a good place to practice before starting an entirely new side-project (and I have **many** in mind).
+
+A lot of time tonight was spent just reviewing old code in this project and deciding where to pick things back up. I decided to finish up a few tests before moving on with anything else, and I'm really excited to continue rebuilding my testing chops. It took a while, but got everything green in the controller, view, and model specs. Something I'm very interested in learning is *what makes a meaningful test?* I look at the long page of specs I've written, and wonder how many of those are actually useful, and what kind of tests I've failed to include. I'll be looking into testing tutorials going forward and incorporating that learning into these projects.
+
+Misc goodies:
+-You can specify a single test to run by appending :line_number at the end of the spec, like so:
+{% highlight ruby %}
+# will only run the test on line 130 in this file
+$ rspec spec/index_spec.rb:130
+{% endhighlight %}
+
+-Add aliases in .zshrc   Adding an alias somewhere else kept causing an update error in Oh-My-Zsh, which resulted in me having to stash a change in order to get the update.
+
+That's all for tonight (3:30am, whatever). Slowly, but surely, getting that rust off. Looking forward to a jam-packed weekend of studying! Stay tuned.
+
+[This post fueled by a Sad Machine][sadmachine]
+
+[err]:			http://i.imgur.com/T9kBcHK.png
+[savior]:		http://i.imgur.com/KqZ78zr.png
+[cljr]:			http://i.imgur.com/cPqhsOV.png
+[sadmachine]: https://www.youtube.com/watch?v=HAIDqt2aUek&index=1&list=LLbJGfIkZhgi9ujCDRt-LRYQ
