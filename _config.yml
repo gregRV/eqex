@@ -12,6 +12,7 @@ timezone: America/California
 
 # Build settings
 markdown: kramdown
+permalink: /:year/:month/:day/:title.html
 
 
 # SAVED FOR NOTES
