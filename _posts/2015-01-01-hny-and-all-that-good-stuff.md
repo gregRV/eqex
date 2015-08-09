@@ -20,14 +20,11 @@ PS, here are a few pics from Ruby Conf!
 
 The always-awesome-and-inspiring Sandi Metz!
 
-![Sandi]
+![Sandi Metz]({{ site.baseurl }}/assets/images/me_and_sandi.jpg "Sandi Metz!")
 
 The Godfather, Mr. Matz #MINSWAN
 
-![Matz]
+![Matz]({{ site.baseurl }}/assets/images/me_and_matz.jpg "Matz!")
 
-
-[Sandi]: 	https://scontent-b-sjc.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10387701_10101388089539477_2948063140041484037_n.jpg?oh=03358f55794444e0ab98e386e877e6fd&oe=552F1DBF
-[Matz]: 	https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/10734221_10101387934904367_8551471373397128492_n.jpg?oh=e53bde184bf58246293e835c4489f45b&oe=55445003&__gda__=1430569399_219f5244d9269ed9c1f626298e696dc1
 [forward]: 	http://forwardjs.com/
 [travel]: 	https://www.facebook.com/video.php?v=10101408666732617&l=1137468956857887233
