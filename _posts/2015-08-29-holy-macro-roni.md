@@ -1,6 +1,6 @@
 ---
 layout: post
-title: holy macro-roni!
+title: Holy Macro-roni!
 categories: []
 tags: []
 published: True
@@ -19,4 +19,7 @@ The code snippets from this blog are taken from an excellent Sweet.js course on 
 ### why use it
 
 ### resources
+[Case-based Macros with Nick Balestra](http://nick.balestra.ch/2015/sweetjs-case-macros-for-javascript/)
+[Rule-based Macros with Luke Savage](http://lukesavage.me/technical/2015/08/29/sweetjs-and-rule-based-macros/)
+[with Zach Sebag]()
 [Pluralsight Sweet.js Tutorial](http://www.pluralsight.com/courses/sweet-js-get-started)
