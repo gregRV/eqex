@@ -26,15 +26,15 @@ Here, we see a normal JavaScript promise (disregard the $ followed by numbers, t
 
 Now, we can use Sweet.js to create a macro to take the place of all that syntax, and still have it be incredibly expressive! Here's what's happening:
 
-- The '=>' represents a macro that does the same thing as a function "fat-arrow" from Coffeescript or ES2015 (aka ES6).
+* The '=>' represents a macro that does the same thing as a function "fat-arrow" from Coffeescript or ES2015 (aka ES6).
 
-- The '==>' represents our new macro that condenses promise boilerplate.
+* The '==>' represents our new macro that condenses promise boilerplate.
 
-- The '12' refers to our new operator's precedence (you can assign any value you wish). Every operator has their own precedence, which you can find [here](http://sweetjs.org/doc/main/sweet.html#operator-precedence).
+* The '12' refers to our new operator's precedence (you can assign any value you wish). Every operator has their own precedence, which you can find [here](http://sweetjs.org/doc/main/sweet.html#operator-precedence).
 
-- The { $l, $r } represents whatever will be found to the immediate left and to the right of our '==>' operator.
+* The { $l, $r } represents whatever will be found to the immediate left and to the right of our '==>' operator.
 
-- The => #{ $l.then($r) } represents our expected output. In this case, we'll have the code from the left of the operator, followed by a call to .then, passing the code from the right of the operator as an argument to .then.
+* The => #{ $l.then($r) } represents our expected output. In this case, we'll have the code from the left of the operator, followed by a call to .then, passing the code from the right of the operator as an argument to .then.
 
 ![rocket macro]({{ site.baseurl }}/assets/images/rocket_macro.png)
 
