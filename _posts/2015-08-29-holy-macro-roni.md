@@ -45,7 +45,7 @@ And here is your new "Rocket" operator in action! Ain't it pretty?
 ### Niceee. But why use macros instead of XYZ?
 With some basic macro use, you have the power to extend your favorite programming language. Read about an awesome ES20XX feature/function that you wish were available today?? PutAMacroOnIt
 
-### Resources
+### Additional Resources
 If you want to learn more about macros and Sweet.js, here are a few awesome blog posts to help you get started!
 
 [Case-based Macros with Nick Balestra]( http://nick.balestra.ch/2015/sweetjs-case-macros-for-javascript/ )
