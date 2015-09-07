@@ -9,8 +9,6 @@ published: True
 
 ![Special Delivery]({{ site.baseurl }}/assets/images/package.jpg)
 
-## Special Delivery! Creating an npm Package
-
 ### Sharing is Caring
 
 As developers, we rely heavily on libraries written by other members of the community on a daily basis. That's actually one of the best things (in my opinion) about being in this space- people are constantly pushing themselves to share knowledge, tools, and practices to help make others' workflows and daily lives that much easier. Some of these libraries come from huge companies like Google and Facebook, while other (just as popular) tools are contributed by small teams (or even individuals) who do this purely out of hobby. One of the best parts about this system is that creating and sharing your own package is made incredibly easy by npm, the node.js package management system. Who knows, maybe you'll author the next _(insert 20XX hawt.js framework)_!
