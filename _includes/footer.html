@@ -2,18 +2,20 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">{{ site.title }}</h2>
+    <h2 class="footer-heading">Get In Touch</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
-          <li>{{ site.title }}</li>
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li><a href="http://gregrv.com">gregRV.com</a></li>
         </ul>
       </div>
 
       <div class="footer-col  footer-col-2">
         <ul class="social-media-list">
+
+          <!-- GITHUB -->
           {% if site.github_username %}
           <li>
             <a href="https://github.com/{{ site.github_username }}">
@@ -23,11 +25,25 @@
                 </svg>
               </span>
 
-              <span class="username">{{ site.github_username }}</span>
+              <span class="username">code</span>
             </a>
           </li>
           {% endif %}
 
+          <!-- LINKEDIN -->
+          {% if site.linkedin_username %}
+          <li>
+            <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
+              <span class="icon  icon--twitter">
+                <image src="{{ site.baseurl }}/assets/images/linkedin.png" height="16px" width="16px"/>
+              </span>
+
+              <span class="username">business</span>
+            </a>
+          </li>
+          {% endif %}
+
+          <!-- TWITTER -->
           {% if site.twitter_username %}
           <li>
             <a href="https://twitter.com/{{ site.twitter_username }}">
@@ -38,7 +54,7 @@
                 </svg>
               </span>
 
-              <span class="username">{{ site.twitter_username }}</span>
+              <span class="username">tweets</span>
             </a>
           </li>
           {% endif %}
