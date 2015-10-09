@@ -7,7 +7,7 @@ published: True
 
 ---
 
-![AwesomeBox.Party]({{ site.baseurl }}/assets/images/awesomebox.jpg)
+![AwesomeBox.Party]({{ site.baseurl }}/assets/images/abp.jpg)
 
 This past weekend I attended [Startup Weekend](http://startupweekend.org/), an event where engineers, designers, entrepreneurs and the like spend 48 hours together to not only create a prototype of a new product, but to also define a sound business model to support the idea. For many of us, the business side of things was brand new territory. As grads from Hack Reactor, we were expecting to spend our time this weekend coding away like a usual hackathon, but this event provided a different kind of challenge, and we were eager to get cracking.
 
