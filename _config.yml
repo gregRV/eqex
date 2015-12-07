@@ -12,8 +12,13 @@ linkedin_username: gregRV
 timezone: America/California
 
 # Build settings
-markdown: kramdown
+# markdown: kramdown (used before redcarpet)
 permalink: /:title.html
+
+# Enable code snippets
+markdown: redcarpet
+highlighter: rouge
+# extensions: [fenced_code_blocks]
 
 # SAVED FOR NOTES
 # description: > # this means to ignore newlines until "baseurl:"
